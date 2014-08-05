@@ -23,6 +23,8 @@ class CreateTasksTable extends Migration {
 			$table->integer('assigned_time'); // enum
 			$table->boolean('done');
 			$table->timestamps();
+			
+			$table->foreign('plan_id')->references('id')->on('plans');
 		});
 	}
 
