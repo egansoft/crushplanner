@@ -23,7 +23,25 @@
 	<p><a href="/logout/">Log out</a></p>
 
 	<h2>Tasks to crush</h2>
-	@foreach(Session::get('tasks') as $task)
-		{{ echo $task->description }}
-	@endforeach
+	<div class="row">
+		<h3 class="col-md-2">Task</h3>
+		<h3 class="col-md-1">Time</h3>
+		<h3 class="col-md-3">Due</h3>
+		<h3 class="col-md-2">Assigned Time</h3>
+		<h3 class="col-md-2">Crushed</h3>
+	</div>
+	
+	{{ Form::open(array('url' => '/crush')) }}
+		@foreach($tasks as $task)
+			<div class="row">
+				<p class="col-md-2">{{ $task->description }}</p>
+				<p class="col-md-1">{{ $task->duration }} min</p>
+				<p class="col-md-3">{{ date('D, M j', strtotime($task->due_date)) }}</p>
+				<p class="col-md-2">{{ date('D, M j', strtotime($task->assigned_day)) }}</p>
+				<p class="col-md-2">{{ Form::checkBox('crush[]', $task->id) }}</p>
+			</div>
+		@endforeach
+		{{ Form::submit('Crush!') }}
+	{{ Form::close() }}
+
 @stop

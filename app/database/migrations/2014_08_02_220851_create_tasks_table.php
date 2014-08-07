@@ -15,6 +15,7 @@ class CreateTasksTable extends Migration {
 		Schema::create('tasks', function($table) {
 			$table->increments('id');
 			$table->integer('plan_id')->unsigned();
+			$table->integer('user_id')->unsigned();
 			$table->string('description');
 			$table->integer('duration'); // in minutes
 			$table->integer('sub_of');
@@ -26,6 +27,7 @@ class CreateTasksTable extends Migration {
 			$table->timestamps();
 			
 			$table->foreign('plan_id')->references('id')->on('plans');
+			$table->foreign('user_id')->references('id')->on('users');
 		});
 	}
 

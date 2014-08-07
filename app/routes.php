@@ -3,10 +3,11 @@
 Route::get('/', function() {
 //	If logged in: home, if not: welcome
 	if(Auth::check()) {
-//		$tasks = Task::where('user_id', '=', Auth::user()->id)->
-//			where('done', '=', false)->orderBy('dueDate', 'asc');
-//		return View::make('home')->with('tasks', $tasks);
-		return View::make('home');
+		$tasks = Task::where('user_id', '=', Auth::user()->id)->
+			where('done', '=', false)->orderBy('due_date', 'asc')->get();
+		
+		return View::make('homealt')->with('tasks', $tasks);
+		return View::make('homealt');
 	} else {
 		return View::make('welcome');
 	}
@@ -122,6 +123,7 @@ Route::post('/create',
 				$task->assigned_time = Input::get('assignedTime')[$i];
 				$task->done = false;
 				$task->plan_id = $plan->id;
+				$task->user_id = Auth::user()->id;
 				$task->save();
 			}
 			
@@ -195,3 +197,21 @@ Route::get('/debug', function() {
     echo '</pre>';
 
 });
+
+
+
+Route::post('/crush',
+	array(
+		'before' => 'csrf',
+		function() {
+//			kjk	
+			for($i=0;$i<count(Input::get('crush'));$i++) {
+				$task = Task::where('id', '=', Input::get('crush')[$i])->first();
+				$task->done = true;
+				$task->save();
+			}
+			
+			return Redirect::to('/')->with('success', 'Congratulations!');
+		}
+	)
+);

@@ -28,11 +28,11 @@
 					<div class="navbar-header">
 						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
 							<span class="sr-only">Toggle navigation</span>
-							<span class="icon-bar">Hi?</span>
+							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</button>
-						<a class="navbar-brand" href="/">Crush Planner</a>
+						<a class="navbar-brand" href="/">Crush Planner Beta</a>
 					</div>
 				</div>
 			</div>
