@@ -45,7 +45,7 @@
 	
 	<h1>Create Crush Plan</h1>
 
-	{{ Form::open(array('url' => '/signup')) }}
+	{{ Form::open(array('url' => '/create')) }}
 		<h2>Name your Crush Plan: {{ Form::text('name', '', array('id' => 'createName')) }}</h2>
 		<div id="createSection2">
 			<h2>Add your tasks</h2>

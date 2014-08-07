@@ -17,10 +17,10 @@ class CreateTasksTable extends Migration {
 			$table->integer('plan_id')->unsigned();
 			$table->string('description');
 			$table->integer('duration'); // in minutes
-			$table->integer('sub_of')->unsigned();
+			$table->integer('sub_of');
 			$table->dateTime('due_date');
 			$table->integer('due_time'); // enum
-			$table->date('assigned_day');
+			$table->dateTime('assigned_day');
 			$table->integer('assigned_time'); // enum
 			$table->boolean('done');
 			$table->timestamps();

@@ -27,7 +27,8 @@ $("#createDoneAddingButton").click(function() {
 			$(".dateField").last().pickadate({
 				format: 'ddd, mmm d, yyyy',
 				formatSubmit: 'yyyy/mm/dd',
-				hiddenName: true,
+				hiddenPrefix: 'submit_',
+				hiddenSuffix: '',
 				min: new Date()
 			})
 		}
@@ -42,7 +43,8 @@ $("#createNewTaskButton").click(function() {
 	duePickers.push($('.dateField').pickadate({
 		format: 'ddd, mmm d, yyyy',
 		formatSubmit: 'yyyy/mm/dd',
-		hiddenName: true,
+		hiddenPrefix: 'submit_',
+		hiddenSuffix: '',
 		min: new Date()
 	}));
 	tasks++;
