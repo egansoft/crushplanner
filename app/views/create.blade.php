@@ -35,7 +35,7 @@
 		<div class="row">
 			<p class="col-md-2 assignDescription"></p>
 			<p class="col-md-1 assignDuration"></p>
-			<p class="col-md-2 assignDue"></p>
+			<p class="col-md-3 assignDue"></p>
 			<span class="col-md-2">{{ Form::text('assignedDate[]', '', array('class' => 'dateField')) }}</span>
 			<span class="col-md-2">{{ Form::select('assignedTime[]', array('0' => 'Morning', '1' => 'Midday', '2' => 'Afternoon',
 				'3' => 'Evening', '4' => 'End of day')) }}</span>
@@ -58,11 +58,12 @@
 			<div class="row">
 				<h3 class="col-md-2">Task</h3>
 				<h3 class="col-md-1">Time</h3>
-				<h3 class="col-md-2">Due</h3>
+				<h3 class="col-md-3">Due</h3>
 				<h3 class="col-md-2">Assigned Day</h3>
 				<h3 class="col-md-2">Assigned Time</h3>
 			</div>
 			<div id="assignTasksArea"></div>
+			{{ Form::submit('Create Crush Plan') }}
 		</div>
 	{{ Form::close() }}
 	<div class="alert alert-danger" id="formErrors" role="alert"></div>
