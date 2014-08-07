@@ -7,7 +7,7 @@ body {
 	display:none;
 }
 
-#createSection2, #createSection3, #createTaskFormat {
+#createSection2, #createSection3, #createTaskFormat, #assignTasksFormat {
 	display:none;
 }
 
@@ -15,8 +15,13 @@ body {
 	margin-bottom:10px;
 }
 
+#formErrors {
+	display:none;
+	margin-top:20px;
+}
+
 .dateField {
-	width:90px;
+/*	width:90px;*/
 }
 
 .numberInput {
